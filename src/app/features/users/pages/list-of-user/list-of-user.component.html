@@ -1,8 +1,15 @@
-<app-no-data *ngIf="noUser" [title]="title"></app-no-data>
+<app-no-data *ngIf="noUser; else usersData" [title]="title"></app-no-data>
 
-<!-- <ng-template #usersData> -->
-<div *ngIf="!noUser">
+<ng-template #usersData>
   <ion-list>
+
+    <ion-item>
+      <ion-label>List of user</ion-label>
+      <ion-label>
+        <ion-button routerLink="/users/create">+ Add User</ion-button>
+      </ion-label>
+    </ion-item>
+
     <ion-item>
       <ion-label>Name</ion-label>
       <ion-label>User Name</ion-label>
@@ -18,5 +25,4 @@
     </ion-item>
 
   </ion-list>
-</div>
-<!-- </ng-template> -->
+</ng-template>

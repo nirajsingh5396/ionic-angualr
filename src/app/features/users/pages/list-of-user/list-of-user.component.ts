@@ -13,11 +13,10 @@ export class ListOfUserComponent implements OnInit {
   noUser: boolean = true;
 
   constructor(private userService: UsersService) { 
-    console.log('sohan')
   }
 
   ngOnInit() {
-    console.log('abc');
+  
     this.getUsers();
   }
 

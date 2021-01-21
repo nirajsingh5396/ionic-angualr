@@ -54,7 +54,7 @@ export class AddUserComponent implements OnInit {
     this.userService.createUser(user)
       .subscribe((res) => {
         if (res.createdUser) {
-          this.router.navigate(['/users/users'])
+          this.router.navigate(['/users'])
         }
       });
   }
