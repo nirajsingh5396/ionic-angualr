@@ -1,3 +1,22 @@
-<p>
-  list-of-user works!
-</p>
+<app-no-data *ngIf="noUser" [title]="title"></app-no-data>
+
+<!-- <ng-template #usersData> -->
+<div *ngIf="!noUser">
+  <ion-list>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-label>User Name</ion-label>
+      <ion-label>Email</ion-label>
+    </ion-item>
+
+    <ion-item *ngFor="let user of users">
+      <ion-label>{{user.name}}</ion-label>
+      <ion-label> {{user.username}} </ion-label>
+      <ion-label> {{user.email}}</ion-label>
+      <!-- <ion-icon name="create-outline" (click)="onDeleteHandler(post.id)"></ion-icon>
+    <ion-icon name="trash-outline"></ion-icon> -->
+    </ion-item>
+
+  </ion-list>
+</div>
+<!-- </ng-template> -->

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { SignInContext } from '../models/sign-in.model';
 
@@ -13,10 +14,11 @@ export class SignInComponent implements OnInit {
   authSignInForm: FormGroup;
   isShowErrorMessage: boolean = false;
   errorMessage: string;
-  
+
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class SignInComponent implements OnInit {
     this.authService.signIn(signnContext)
       .subscribe((signInContextRes) => {
         if (signInContextRes.authenticated) {
-
+          this.router.navigate(['/users'])
         } else {
           this.isShowErrorMessage = true;
           this.errorMessage = signInContextRes.message;
