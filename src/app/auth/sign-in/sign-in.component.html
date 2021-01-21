@@ -1,8 +1,16 @@
 <form [formGroup]="authSignInForm" (ngSubmit)="authSignFormSubmission()" class="align-center">
 
+  <ion-item>
+    <ion-label>
+      <strong>
+        Sign in here!
+      </strong>
+    </ion-label>
+  </ion-item>
+
   <p class="error-message" *ngIf="isShowErrorMessage">{{errorMessage}}</p>
 
-  <ion-item >
+  <ion-item>
     <ion-label position="stacked">User ID</ion-label>
     <ion-input type="text" placeholder="Enter user id" formControlName="userId"></ion-input>
     <span *ngIf="formInputIsRequired('userId')" class="required">&#42;</span>
@@ -14,6 +22,6 @@
     <span *ngIf="formInputIsRequired('password')" class="required">&#42;</span>
   </ion-item>
 
-  <ion-button type="submit" [disabled]="!authSignInForm.valid" >Sign in</ion-button>
+  <ion-button type="submit" [disabled]="!authSignInForm.valid">Sign in</ion-button>
 
 </form>

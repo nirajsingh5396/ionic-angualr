@@ -78,7 +78,6 @@ export class UsersService {
     if (user) {
       this.users.push(user);
     }
-    console.log(this.users);
     return of({ createdUser: true });
   }
 

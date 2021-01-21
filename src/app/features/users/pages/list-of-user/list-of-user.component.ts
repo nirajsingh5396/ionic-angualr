@@ -24,7 +24,6 @@ export class ListOfUserComponent implements OnInit {
     this.userService.getUsers()
       .subscribe(users => {
         if (users.length > 0) {
-          console.log(users);
           this.users = users;
           this.noUser = false;
         }
