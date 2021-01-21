@@ -95,7 +95,7 @@ export class UsersService {
 
 
   deleteUser(userName: string): Observable<any> {
-    const index = this.users.findIndex(x => x.username === userName);
+    const index = this.users.findIndex(x => x.username.trim() === userName.trim());
     if (index < 0) {
       return of(null);
     }
