@@ -9,6 +9,7 @@ import { UsersService } from '../../users.service';
 })
 export class ListOfUserComponent implements OnInit {
   title: string = 'You have not added user please add user below';
+  searchText: string;
   users: Users[] = [];
   noUser: boolean = true;
 

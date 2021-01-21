@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { NoDataComponent } from './components/no-data/no-data.component';
+import { UserFilterPipe } from './pipes/user-filter.pipe';
 
 
 
 @NgModule({
-  declarations: [NoDataComponent],
+  declarations: [
+    NoDataComponent,
+    UserFilterPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,7 +27,8 @@ import { NoDataComponent } from './components/no-data/no-data.component';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    NoDataComponent
+    NoDataComponent,
+    UserFilterPipe
   ],
   providers: []
 })
