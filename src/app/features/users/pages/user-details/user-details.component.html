@@ -1,15 +1,14 @@
-<ion-list *ngIf="user$ | async as user">
+<ion-item>
+  <ion-label><strong>User Details</strong></ion-label>
+</ion-item>
 
-  <ion-item>
-    <ion-label>Name</ion-label>
-    <ion-label>UserName</ion-label>
-    <ion-label>Email</ion-label>
-  </ion-item>
+<ion-card *ngIf="user$ | async as user">
+  <ion-card-header>
+    <ion-card-title>{{user.name}}</ion-card-title>
+    <ion-card-subtitle>{{user.username}}</ion-card-subtitle>
+  </ion-card-header>
 
-  <ion-item>
-    <ion-label>{{user.name}}</ion-label>
-    <ion-label>{{user.username}}</ion-label>
-    <ion-label>{{user.email}}</ion-label>
-  </ion-item>
-
-</ion-list>
+  <ion-card-content>
+    {{user.email}}
+  </ion-card-content>
+</ion-card>
