@@ -16,7 +16,7 @@
 
   <ion-item>
     <ion-label position="stacked">User name</ion-label>
-    <ion-input type="text" placeholder="Enter user name" formControlName="username"></ion-input>
+    <ion-input type="text" [disabled]="!!user" placeholder="Enter user name" formControlName="username"></ion-input>
     <span *ngIf="formInputIsRequired('username')" class="required">&#42;</span>
   </ion-item>
   <ion-item>
@@ -26,7 +26,7 @@
   </ion-item>
 
   <ion-button *ngIf="!user" type="submit" [disabled]="!createUserForm.valid">Create</ion-button>
-  <ion-button *ngIf="!!user" [disabled]="!createUserForm.valid">Update</ion-button>
+  <ion-button *ngIf="!!user" type="submit" [disabled]="!createUserForm.valid">Update</ion-button>
 
 
 </form>

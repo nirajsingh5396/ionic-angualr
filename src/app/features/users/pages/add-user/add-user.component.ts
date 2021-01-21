@@ -22,7 +22,6 @@ export class AddUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.user)
     this.buildCreateUserForm();
     this.updateValue();
   }
@@ -60,7 +59,6 @@ export class AddUserComponent implements OnInit {
   }
 
   userUpdateFormSubmission() {
-
     if (!this.createUserForm.valid) {
       return;
     }

@@ -82,7 +82,7 @@ export class UsersService {
   }
 
   updateUser(user: Users): Observable<any> {
-    const isUser = this.users.find(x => x.username === user.username);
+    const isUser = this.users.find(x => x.username.trim() === user.username.trim());
     if (!isUser) {
       return of(null);
     }

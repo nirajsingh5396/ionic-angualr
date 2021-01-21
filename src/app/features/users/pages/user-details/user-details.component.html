@@ -1,5 +1,12 @@
-<ion-item>
+<ion-item *ngIf="user$ | async as user">
   <ion-label><strong>User Details</strong></ion-label>
+  <ion-label>
+    <ion-icon name="create-outline" [routerLink]="['/users/edit', user.username]"></ion-icon>
+  </ion-label>
+  <ion-label>
+    <ion-icon name="trash-outline"></ion-icon>
+  </ion-label>
+
 </ion-item>
 
 <ion-card *ngIf="user$ | async as user">
