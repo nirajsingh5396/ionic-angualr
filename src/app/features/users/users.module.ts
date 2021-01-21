@@ -11,6 +11,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ListOfUserComponent } from './pages/list-of-user/list-of-user.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { EditUserComponent} from './pages/edit-user/edit-user.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { UserDetailsComponent } from './pages/user-details/user-details.componen
     UsersPage,
     ListOfUserComponent,
     AddUserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    EditUserComponent
   ]
 })
 export class UsersPageModule { }
