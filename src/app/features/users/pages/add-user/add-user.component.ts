@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { constant } from 'src/app/shared/helpers/constant';
 import { Users } from '../../models/users.model';
 import { UsersService } from '../../users.service';
 
@@ -30,7 +31,7 @@ export class AddUserComponent implements OnInit {
     this.createUserForm = this.formBuilder.group({
       name: [null, [Validators.required]],
       username: [null, [Validators.required]],
-      email: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.pattern(constant.emailPattern)]],
     });
   }
 
@@ -74,6 +75,12 @@ export class AddUserComponent implements OnInit {
     }
     return false;
   }
+
+  // getErrorMessageForEmail() {
+  //   if (this.createUserForm.controls.email.errors.pattern) {
+  //     return 'Email id is invalid';
+  //   }
+  // }
 
 
 }
