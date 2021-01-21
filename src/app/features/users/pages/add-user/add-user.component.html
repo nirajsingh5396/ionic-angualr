@@ -1,11 +1,12 @@
-<form [formGroup]="createUserForm" (ngSubmit)="userCreateFormSubmission()" class="align-center">
+<form [formGroup]="createUserForm" (ngSubmit)="user ? userUpdateFormSubmission(): userCreateFormSubmission()"
+  class="align-center">
 
   <ion-item>
     <ion-label position="stacked">Name</ion-label>
     <ion-input type="text" placeholder="Enter name" formControlName="name"></ion-input>
     <span *ngIf="formInputIsRequired('name')" class="required">&#42;</span>
   </ion-item>
-  
+
   <ion-item>
     <ion-label position="stacked">User name</ion-label>
     <ion-input type="text" placeholder="Enter user name" formControlName="username"></ion-input>
@@ -17,6 +18,8 @@
     <span *ngIf="formInputIsRequired('email')" class="required">&#42;</span>
   </ion-item>
 
-  <ion-button type="submit" [disabled]="!createUserForm.valid" >Create</ion-button>
+  <ion-button *ngIf="!user" type="submit" [disabled]="!createUserForm.valid">Create</ion-button>
+  <ion-button *ngIf="!!user" [disabled]="!createUserForm.valid">Update</ion-button>
+
 
 </form>

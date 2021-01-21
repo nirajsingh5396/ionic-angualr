@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Users } from '../../models/users.model';
@@ -12,6 +12,8 @@ import { UsersService } from '../../users.service';
 export class AddUserComponent implements OnInit {
 
   createUserForm: FormGroup;
+  @Input() user: Users;
+  @Output() emitUser: EventEmitter<Users> = new EventEmitter<Users>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,8 +22,9 @@ export class AddUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('add-user');
+    console.log(this.user)
     this.buildCreateUserForm();
+    this.updateValue();
   }
 
   buildCreateUserForm() {
@@ -30,6 +33,16 @@ export class AddUserComponent implements OnInit {
       username: [null, [Validators.required]],
       email: [null, [Validators.required]],
     });
+  }
+
+  updateValue() {
+    if (this.user) {
+      this.createUserForm.setValue({
+        name: this.user.name,
+        username: this.user.username,
+        email: this.user.email
+      });
+    }
   }
 
   userCreateFormSubmission() {
@@ -44,6 +57,15 @@ export class AddUserComponent implements OnInit {
           this.router.navigate(['/users/users'])
         }
       });
+  }
+
+  userUpdateFormSubmission() {
+
+    if (!this.createUserForm.valid) {
+      return;
+    }
+    const user = this.createUserForm.value as Users;
+    this.emitUser.next(user);
   }
 
   formInputIsRequired(formInput: string): boolean {
