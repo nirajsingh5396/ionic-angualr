@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-no-data',
@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoDataComponent implements OnInit {
 
+  @Input() title: string;
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

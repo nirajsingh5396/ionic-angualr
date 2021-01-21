@@ -6,11 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { SharedService } from './services/shared.service';
+import { NoDataComponent } from './components/no-data/no-data.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [NoDataComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -24,6 +25,7 @@ import { SharedService } from './services/shared.service';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
+    NoDataComponent
   ],
   providers: [SharedService]
 })
